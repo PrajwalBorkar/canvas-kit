@@ -278,6 +278,18 @@ const SearchInput = styled(TextInput)<
 export class SearchForm extends React.Component<SearchFormProps, SearchFormState> {
   static Theme = SearchTheme;
 
+  static defaultProps = {
+    clearButtonAriaLabel: 'Reset Search Form',
+    placeholder: 'Search',
+    inputLabel: 'Search',
+    submitAriaLabel: 'Search',
+    openButtonAriaLabel: 'Open Search',
+    closeButtonAriaLabel: 'Cancel',
+    showClearButton: true,
+    height: 40,
+    allowEmptyStringSearch: false,
+  };
+
   private inputRef = React.createRef<HTMLInputElement>();
   private openRef = React.createRef<HTMLButtonElement>();
   private labelId = generateUniqueId();
@@ -379,14 +391,14 @@ export class SearchForm extends React.Component<SearchFormProps, SearchFormState
 
   render() {
     const {
-      clearButtonAriaLabel = 'Reset Search Form',
-      placeholder = 'Search',
-      inputLabel = 'Search',
-      submitAriaLabel = 'Search',
-      openButtonAriaLabel = 'Open Search',
-      closeButtonAriaLabel = 'Cancel',
-      showClearButton = true,
-      height = 40,
+      clearButtonAriaLabel,
+      placeholder,
+      inputLabel,
+      submitAriaLabel,
+      openButtonAriaLabel,
+      closeButtonAriaLabel,
+      showClearButton,
+      height,
       grow,
       onSubmit,
       isCollapsed,
@@ -395,7 +407,7 @@ export class SearchForm extends React.Component<SearchFormProps, SearchFormState
       initialValue,
       searchTheme,
       rightAlign,
-      allowEmptyStringSearch = false,
+      allowEmptyStringSearch,
       ...elemProps
     } = this.props;
 

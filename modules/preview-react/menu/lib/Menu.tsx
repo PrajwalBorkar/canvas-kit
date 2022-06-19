@@ -58,6 +58,10 @@ const List = styled('ul')({
 });
 
 export default class Menu extends React.Component<MenuProps, MenuState> {
+  static defaultProps = {
+    isOpen: true,
+  };
+
   private id = generateUniqueId();
   private animateId!: number;
 
@@ -107,7 +111,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
     // TODO: Standardize on prop spread location (see #150)
     const {
       id = this.id,
-      isOpen = true,
+      isOpen,
       children,
       'aria-labelledby': ariaLabelledby,
       grow,

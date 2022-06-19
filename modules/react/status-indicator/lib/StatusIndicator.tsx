@@ -150,15 +150,13 @@ export default class StatusIndicator extends React.Component<StatusIndicatorProp
   public static Type = StatusIndicatorType;
   public static Emphasis = StatusIndicatorEmphasis;
 
+  static defaultProps = {
+    emphasis: StatusIndicatorEmphasis.High,
+    maxWidth: 200,
+  };
+
   public render() {
-    const {
-      emphasis = StatusIndicatorEmphasis.High,
-      maxWidth = 200,
-      type,
-      icon,
-      label,
-      ...elemProps
-    } = this.props;
+    const {emphasis, maxWidth, type, icon, label, ...elemProps} = this.props;
     const variant = statusIndicatorStyles.variants[type][emphasis]!;
 
     return (

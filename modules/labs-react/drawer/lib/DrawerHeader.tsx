@@ -74,12 +74,19 @@ const CloseButton = styled(TertiaryButton)({
 });
 
 export default class DrawerHeader extends React.Component<DrawerHeaderProps, {}> {
+  static defaultProps = {
+    closeIconAriaLabel: 'Close',
+    headerColor: colors.soap100,
+    borderColor: colors.soap500,
+    inverse: false,
+  };
+
   public render() {
     const {
-      closeIconAriaLabel = 'Close',
-      headerColor = colors.soap100,
-      borderColor = colors.soap500,
-      inverse = false,
+      closeIconAriaLabel,
+      headerColor,
+      borderColor,
+      inverse,
       onClose,
       title,
       id,

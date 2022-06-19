@@ -171,6 +171,15 @@ export default class SidePanel extends React.Component<SidePanelProps, SidePanel
   static OpenDirection = SidePanelOpenDirection;
   static BackgroundColor = SidePanelBackgroundColor;
 
+  static defaultProps = {
+    backgroundColor: SidePanelBackgroundColor.White,
+    openNavigationAriaLabel: 'open navigation',
+    closeNavigationAriaLabel: 'close navigation',
+    openDirection: SidePanelOpenDirection.Left,
+    breakpoint: 768,
+    openWidth: 300,
+  };
+
   constructor(props: SidePanelProps) {
     super(props);
     this.handleResize = throttle(this.handleResize.bind(this), 150);
@@ -189,12 +198,12 @@ export default class SidePanel extends React.Component<SidePanelProps, SidePanel
 
   public render() {
     const {
-      backgroundColor = SidePanelBackgroundColor.White,
-      openNavigationAriaLabel = 'open navigation',
-      closeNavigationAriaLabel = 'close navigation',
-      openDirection = SidePanelOpenDirection.Left,
-      breakpoint = 768,
-      openWidth = 300,
+      backgroundColor,
+      openNavigationAriaLabel,
+      closeNavigationAriaLabel,
+      openDirection,
+      breakpoint,
+      openWidth,
       header,
       onToggleClick,
       open,

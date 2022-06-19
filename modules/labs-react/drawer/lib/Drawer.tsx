@@ -91,12 +91,19 @@ const ChildrenContainer = styled('div')<Pick<DrawerProps, 'padding'>>(
 export default class Drawer extends React.Component<DrawerProps, {}> {
   static OpenDirection = DrawerDirection;
 
+  static defaultProps = {
+    padding: space.s,
+    width: 360,
+    openDirection: DrawerDirection.Right,
+    showDropShadow: false,
+  };
+
   public render() {
     const {
-      padding = space.s,
-      width = 360,
-      openDirection = DrawerDirection.Right,
-      showDropShadow = false,
+      padding,
+      width,
+      openDirection,
+      showDropShadow,
       children,
       header,
       role,
